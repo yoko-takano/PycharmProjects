@@ -1,0 +1,21 @@
+nome1 = str(input('Em que cidade você nasceu? ')).strip()
+lista = nome1.split()
+# print(nome1[:5] == 'Santo')
+primeiro = lista[0].upper()
+print('SANTO' in primeiro)
+
+nome2 = str(input('Digite o nome: ')).strip()
+cx_alta = nome2.upper()
+print('SILVA' in cx_alta)
+
+frase1 = str(input('Digite uma frase: ')).strip().upper()
+print('A letra A aparece {} vezes na frase.'.format(frase1.count('A')))
+print('A primeira letra A apareceu na posição {}.'.format(frase1.find('A')+1))
+print('A última letra A apareceu na posição {}.'.format(frase1.rfind('A')+1))
+
+nome3 = str(input('Digite um nome: '))
+lista2 = nome3.split()
+qntd = len(lista2)
+print(qntd, lista2)
+print('Primeiro nome: {}'.format(lista2[0]))
+print('Último nome: {}'.format(lista2[qntd-1]))
