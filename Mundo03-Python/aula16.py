@@ -30,6 +30,3 @@ print(c.index(2, 4))
 
 pessoa = ('Gustavo', 39, 'M', 99.88) # aceita mais um tipo
 del pessoa  # tuplas são imutáveis, porém dá pra deletar tudo
-
-
-
