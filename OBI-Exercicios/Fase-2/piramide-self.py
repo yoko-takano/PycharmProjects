@@ -1,35 +1,33 @@
-dimPiramide = 3
-listaDimensao = []
-listaNumPrint = []
-cont = dimPiramide
-seq = 1
-while cont > 0:
-    listaDimensao.append(cont)
-    listaNumPrint.append(seq)
-    cont -= 2
-    seq += 1
+import numpy as np
 
-listaDimensao.reverse()
-listaNumPrint.reverse()
-print(listaDimensao)
-print(listaNumPrint)
+n = int(input())
+plano = [[0 for i in range(n)] for i in range(n)]
 
 
+def camada(k, n):
+    # 1 <= k <= n
+    # linha superior
+    for i in range(k - 1, n - k + 1):
+        plano[k - 1][i] = k
 
-listaInterna = []
-listaExterna = []
-for camada in listaDimensao:
-    for i in range(1, camada+1):
-        if i == 0:
-            for j in range(camada):
-                valor = 1
-                listaInterna.append(valor)
-            listaExterna.append(listaInterna)
-        elif i == camada:
-            for j in range(camada):
-                valor = 2
-                listaInterna.append(valor)
-            listaExterna.append(listaInterna)
-        else:
-            listaExterna.append(3)
-            listaExterna.insert(0, 3)
+    # linha inferior
+    for i in range(k - 1, n - k + 1):
+        plano[n - k][i] = k
+
+        # coluna esquerda
+    for j in range(k - 1, n - k + 1):
+        plano[j][k - 1] = k
+
+        # coluna direita
+    for j in range(k - 1, n - k + 1):
+        plano[j][n - k] = k
+
+
+for i in range(1, 2 + n // 2):
+    camada(i, n)
+
+# imprime o plano
+for i in range(n):
+    for j in range(n - 1):
+        print(plano[i][j], end=' ')
+    print(plano[i][n - 1])  # último valor da linha

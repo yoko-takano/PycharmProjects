@@ -9,3 +9,4 @@ elif defesa1 != ataque2 and defesa2 == ataque1:
     print("2")
 else:
     print("-1")
+
